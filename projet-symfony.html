@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Projets Symfony - Portfolio Diallo Moussa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <h2>Moussa<span>.dev</span></h2>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Retour</a></li>
+                <li><a href="index.html#projets" class="nav-link">Autres Projets</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i>
+            </button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <div class="project-icon-large">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h1 class="project-title">Projets Symfony</h1>
+                <p class="project-subtitle">Développement d'applications web professionnelles</p>
+
+                <div class="project-tags">
+                    <span><i class="fab fa-symfony"></i> Symfony</span>
+                    <span><i class="fas fa-database"></i> Doctrine</span>
+                    <span><i class="fas fa-layer-group"></i> Twig</span>
+                    <span><i class="fas fa-shield-alt"></i> Security</span>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <div class="content-section">
+                    <h2><i class="fas fa-info-circle"></i> Présentation</h2>
+                    <p>Dans le cadre de ma formation en BTS SIO option SLAM, j'ai développé plusieurs applications web avec le framework <strong>Symfony</strong>. Ces projets progressifs m'ont permis de maîtriser l'architecture MVC, l'ORM Doctrine, le système de sécurité, et les bonnes pratiques de développement web professionnel.</p>
+                    <p>Ces projets couvrent différents secteurs d'activité (bibliothèque, cinéma, formations en ligne, santé, mise en relation professionnelle) et abordent l'ensemble du spectre de développement : de la création de contrôleurs jusqu'à l'implémentation d'un système d'authentification complet.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-star"></i> Compétences Développées</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-sitemap"></i>
+                            <h3>Architecture MVC</h3>
+                            <p>Maîtrise du pattern Model-View-Controller, création de contrôleurs et système de routage avec annotations/attributs</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-file-code"></i>
+                            <h3>Templates Twig</h3>
+                            <p>Création d'interfaces avec Twig, héritage de templates, composants réutilisables et intégration Bootstrap responsive</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-database"></i>
+                            <h3>Doctrine ORM</h3>
+                            <p>Modélisation d'entités, relations complexes (OneToMany, ManyToOne, ManyToMany), migrations et EntityManager</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-search"></i>
+                            <h3>Repository & Requêtes</h3>
+                            <p>Repository Pattern, DQL, Query Builder, optimisation des performances et résolution des problèmes N+1</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-double"></i>
+                            <h3>Formulaires & Validation</h3>
+                            <p>FormBuilder, FormType, contraintes de validation personnalisées et gestion des données utilisateur</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Sécurité</h3>
+                            <p>Authentification, autorisation, gestion des rôles, protection CSRF et hashage sécurisé des mots de passe</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-project-diagram"></i> Domaines d'Application</h2>
+                    <p>Ces projets m'ont permis de développer des applications complètes couvrant différents secteurs d'activité et d'aborder des problématiques métier variées.</p>
+
+                    <div class="symfony-projects">
+                        <div class="symfony-project-item">
+                            <h3><i class="fas fa-cogs"></i> Systèmes de Gestion Métier</h3>
+                            <p>J'ai conçu et développé plusieurs applications de gestion pour différents secteurs :</p>
+                            <ul>
+                                <li><strong>Gestion de bibliothèque universitaire</strong> - Catalogue de livres, système de filtrage par genre, affichage détaillé des ouvrages</li>
+                                <li><strong>Gestion de cinéma</strong> - Programmation de films, séances, filtres par genre avec une interface responsive moderne</li>
+                                <li><strong>Plateforme de formations en ligne</strong> - Gestion des cours, modules, inscriptions d'apprenants et assignation d'instructeurs</li>
+                                <li><strong>Système de consultations médicales</strong> - Coordination de consultations, gestion de cabinets médicaux, praticiens et spécialités</li>
+                                <li><strong>Plateforme de mise en relation</strong> - Connexion entre étudiants et entreprises pour les stages avec système de candidatures</li>
+                            </ul>
+                        </div>
+
+                        <div class="symfony-project-item">
+                            <h3><i class="fas fa-layer-group"></i> Architecture & Développement</h3>
+                            <p>Dans ces projets, j'ai mis en œuvre :</p>
+                            <ul>
+                                <li><strong>Architecture MVC complète</strong> avec création de contrôleurs, routage avancé et gestion du cycle requête/réponse</li>
+                                <li><strong>Modélisation de données complexes</strong> avec Doctrine ORM, relations entre entités (OneToMany, ManyToOne, ManyToMany) et migrations</li>
+                                <li><strong>Interfaces utilisateur modernes</strong> avec Twig, héritage de templates, composants réutilisables et intégration Bootstrap</li>
+                                <li><strong>Système de recherche performant</strong> utilisant le Repository Pattern, DQL, QueryBuilder et optimisation des requêtes</li>
+                                <li><strong>Formulaires et validation</strong> avec FormBuilder, contraintes personnalisées et gestion robuste des données utilisateur</li>
+                                <li><strong>Sécurité complète</strong> incluant authentification, autorisation, gestion des rôles et protection CSRF</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-code"></i> Stack Technique</h2>
+                    <div class="tech-stack">
+                        <div class="tech-category">
+                            <h3>Backend & Framework</h3>
+                            <ul>
+                                <li><strong>Symfony 6/7</strong> - Framework PHP moderne</li>
+                                <li><strong>Doctrine ORM</strong> - Mapping objet-relationnel</li>
+                                <li><strong>Symfony Security</strong> - Authentification et autorisation</li>
+                                <li><strong>Symfony Forms</strong> - Gestion des formulaires</li>
+                                <li><strong>Symfony Validator</strong> - Validation des données</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h3>Frontend & Templates</h3>
+                            <ul>
+                                <li><strong>Twig</strong> - Moteur de templates</li>
+                                <li><strong>Bootstrap 5</strong> - Framework CSS</li>
+                                <li><strong>JavaScript</strong> - Interactions dynamiques</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h3>Base de Données</h3>
+                            <ul>
+                                <li><strong>MySQL 8</strong> - Base de données principale</li>
+                                <li><strong>Doctrine Migrations</strong> - Versioning BDD</li>
+                                <li><strong>Doctrine Fixtures</strong> - Données de test</li>
+                                <li><strong>Query Builder</strong> - Requêtes complexes</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h3>Outils & DevOps</h3>
+                            <ul>
+                                <li><strong>Composer</strong> - Gestionnaire de dépendances</li>
+                                <li><strong>Symfony CLI</strong> - Outils en ligne de commande</li>
+                                <li><strong>Docker</strong> - Conteneurisation</li>
+                                <li><strong>Git</strong> - Contrôle de version</li>
+                                <li><strong>PhpStorm</strong> - IDE professionnel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-graduation-cap"></i> Compétences Acquises</h2>
+                    <div class="challenges">
+                        <div class="challenge-item">
+                            <h3>Architecture Logicielle</h3>
+                            <p>Maîtrise du pattern MVC, des principes SOLID et de la création d'applications maintenables et évolutives. Utilisation des bundles et services Symfony pour une architecture modulaire.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Modélisation de Données</h3>
+                            <p>Conception de modèles de données complexes avec Doctrine ORM : entités, relations (OneToMany, ManyToOne, ManyToMany), migrations, et gestion du cycle de vie des objets.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Sécurité Web</h3>
+                            <p>Implémentation de mécanismes de sécurité robustes : authentification, autorisation, gestion des rôles, protection CSRF, validation des entrées, hashage sécurisé des mots de passe.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Performance & Optimisation</h3>
+                            <p>Optimisation des requêtes SQL avec DQL et QueryBuilder, mise en cache avec Symfony Cache, lazy loading des relations Doctrine, résolution des problèmes N+1.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Développement Frontend</h3>
+                            <p>Création d'interfaces utilisateur modernes et responsives avec Twig, Bootstrap 5, héritage de templates, composants réutilisables, et intégration CSS/JavaScript.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Gestion de Projets</h3>
+                            <p>Analyse de cahiers des charges, extraction de modèles de données, documentation technique, respect des contraintes métier et réglementaires, travail en autonomie.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-rocket"></i> Résultats</h2>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <div class="result-number">6</div>
+                            <p>Projets réalisés</p>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">100%</div>
+                            <p>Respect des bonnes pratiques</p>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">MVC</div>
+                            <p>Architecture maîtrisée</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-actions">
+                    <a href="index.html#projets" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> Retour aux projets
+                    </a>
+                    <a href="index.html#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Me contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Diallo Moussa. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="https://github.com/DImoussa" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/moussa-diallo-a99706236/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" title="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

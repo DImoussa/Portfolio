@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Diallo Moussa - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#accueil" class="logo">
+                <h2>Moussa<span>.dev</span></h2>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="#apropos" class="nav-link">À propos</a></li>
+                <li><a href="#parcours" class="nav-link">Parcours</a></li>
+                <li><a href="#projets" class="nav-link">Projets</a></li>
+                <li><a href="#competences" class="nav-link">Compétences</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i>
+            </button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Bonjour, je suis <span class="gradient-text">Diallo Moussa</span></h1>
+            <p class="hero-subtitle">Développeur Full Stack | BTS SIO SLAM</p>
+            <p class="hero-description">Passionné par le développement web et mobile, je crée des solutions innovantes avec React, Symfony et Java.</p>
+            <div class="hero-buttons">
+                <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+                <a href="#contact" class="btn btn-secondary">Me contacter</a>
+                <a href="CV/Moussa_Diallo_CV.pdf" target="_blank" class="btn btn-cv">
+                    <i class="fas fa-file-pdf"></i> Mon CV
+                </a>
+                <a href="projet-arcade.html" class="btn btn-fun">
+                    <i class="fas fa-gamepad"></i> Amusez-vous !
+                </a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/DImoussa" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/moussa-diallo-a99706236/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:moussadou128@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="tel:0623725942"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="profile-card">
+                <img src="Image/Photo.jpeg" alt="Diallo Moussa" class="profile-photo">
+            </div>
+        </div>
+    </section>
+
+    <section id="apropos" class="about">
+        <div class="container">
+            <h2 class="section-title">À propos de moi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Je suis actuellement en <strong>BTS SIO (Services Informatiques aux Organisations)</strong> à l'école privée ORT Montreuil Daniel Mayer. J'ai choisi la filière <strong>SLAM</strong> et actuellement en 2e années.</p>
+                    <p>À l'avenir, j'aimerais me spécialiser en tant que <strong>développeur full stack</strong> et réaliser de grands projets qui ont un impact réel.</p>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Montreuil, 93100</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>BTS SIO SLAM</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-globe"></i>
+                            <span>Français, Anglais</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="parcours" class="timeline">
+        <div class="container">
+            <h2 class="section-title">Parcours Professionnel</h2>
+            <div class="timeline-items">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">05/2025 - 07/2026</div>
+                        <h3>Développeur Full Stack React / React Native</h3>
+                        <h4>Kubiq | Distanciel | Stage</h4>
+                        <ul>
+                            <li>Développement et optimisation d'applications web (React) et mobile (React Native)</li>
+                            <li>Gestion du Dark Mode, traduction multilingue, migration SDK Expo</li>
+                            <li>Correction de bugs critiques et amélioration de la navigation</li>
+                            <li>Participation aux réunions hebdomadaires</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">01/2024 - En cours</div>
+                        <h3>BTS SIO: SLAM</h3>
+                        <h4>ORT Montreuil Daniel Mayer | Montreuil</h4>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">09/2022</div>
+                        <h3>Baccalauréat: STMG - SIG</h3>
+                        <h4>Lycée Jean Jaurès | Montreuil</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets" class="projects">
+        <div class="container">
+            <h2 class="section-title">Mes Projets</h2>
+            <div class="projects-grid">
+                <a href="projet-gesttravaux.html" class="project-card" data-aos="zoom-in">
+                    <div class="project-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>GestTravaux Pro</h3>
+                </a>
+
+                <a href="projet-react-native.html" class="project-card" data-aos="zoom-in">
+                    <div class="project-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Application React / Native</h3>
+                </a>
+
+                <a href="projet-symfony.html" class="project-card" data-aos="zoom-in">
+                    <div class="project-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Projets Symfony</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences" class="skills">
+        <div class="container">
+            <h2 class="section-title">Compétences</h2>
+            <div class="skills-container">
+                <div class="skill-category" data-aos="fade-right">
+                    <h3><i class="fas fa-code"></i> Frontend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">HTML/CSS</div>
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">React</div>
+                        <div class="skill-item">React Native</div>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">PHP</div>
+                        <div class="skill-item">Symfony</div>
+                        <div class="skill-item">Java</div>
+                        <div class="skill-item">Python</div>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-left">
+                    <h3><i class="fas fa-database"></i> Base de données</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">SQL</div>
+                        <div class="skill-item">MySQL</div>
+                        <div class="skill-item">Doctrine</div>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-right">
+                    <h3><i class="fas fa-tools"></i> Outils</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">PhPStorm</div>
+                        <div class="skill-item">IntelliJ IDEA</div>
+                        <div class="skill-item">Azure</div>
+                        <div class="skill-item">Docker</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Me Contacter</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item" data-aos="fade-right">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <p>06 23 72 59 42</p>
+                        </div>
+                    </div>
+                    <div class="contact-item" data-aos="fade-right">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>moussadou128@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item" data-aos="fade-right">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <a href="https://www.linkedin.com/in/moussa-diallo-a99706236/" target="_blank" class="contact-link">Voir mon profil</a>
+                        </div>
+                    </div>
+                    <div class="contact-item" data-aos="fade-right">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <a href="https://github.com/DImoussa" target="_blank" class="contact-link">github.com/DImoussa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Diallo Moussa. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="https://github.com/DImoussa" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/moussa-diallo-a99706236/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" title="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

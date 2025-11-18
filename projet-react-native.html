@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Application Web & Mobile React - Portfolio Diallo Moussa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <h2>Moussa<span>.dev</span></h2>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Retour</a></li>
+                <li><a href="index.html#projets" class="nav-link">Autres Projets</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i>
+            </button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <div class="project-icon-large">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h1 class="project-title">Application Web & Mobile React</h1>
+                <p class="project-subtitle">Développement d'applications web et mobiles cross-platform</p>
+
+                <div class="project-tags">
+                    <span><i class="fab fa-react"></i> React</span>
+                    <span><i class="fab fa-react"></i> React Native</span>
+                    <span><i class="fas fa-rocket"></i> Expo</span>
+                    <span><i class="fab fa-js"></i> TypeScript</span>
+                    <span><i class="fas fa-language"></i> FR/EN</span>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <div class="content-section" style="text-align: center; background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1)); border-left-color: var(--accent-color);">
+                    <h2><i class="fas fa-external-link-alt"></i> Découvrir Kubiq</h2>
+                    <p>J'ai développé des fonctionnalités pour <strong>Kubiq</strong>, une entreprise innovante proposant un réseau social libre et contre la désinformation. Visitez leur réseau social pour en savoir plus.</p>
+                    <a href="https://kubiq.net" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; font-size: 1.1rem; padding: 1rem 2rem;">
+                        <i class="fas fa-globe"></i>
+                        Visiter kubiq.net
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-info-circle"></i> Présentation du Projet</h2>
+                    <p>Dans le cadre de mon stage chez <strong>Kubiq</strong> (mai 2025 - juillet 2026), j'ai développé et optimisé des applications <strong>web et mobiles</strong> cross-platform en utilisant React, React Native et Expo. Ce projet m'a permis de travailler sur des applications déployées en production et utilisées par de vrais utilisateurs.</p>
+                    <p>J'ai participé à toutes les étapes du développement : de la conception des fonctionnalités à leur déploiement, en passant par la correction de bugs critiques et l'amélioration de l'expérience utilisateur sur les deux plateformes (web et mobile).</p>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-star"></i> Missions Principales</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-moon"></i>
+                            <h3>Dark Mode</h3>
+                            <p>Implémentation complète du mode sombre avec persistance des préférences et transitions fluides</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-language"></i>
+                            <h3>Traduction Multilingue</h3>
+                            <p>Création d'un système de traduction FR/EN avec fichiers de traduction dédiés et sélecteur de langue manuel</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-route"></i>
+                            <h3>Navigation Expo Router</h3>
+                            <p>Migration et optimisation de la navigation avec le nouveau système Expo Router</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bug"></i>
+                            <h3>Correction de Bugs</h3>
+                            <p>Identification et résolution de bugs critiques affectant l'expérience utilisateur</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <h3>Migration SDK Expo</h3>
+                            <p>Mise à jour vers les dernières versions d'Expo pour améliorer les performances</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <h3>Optimisation Performance</h3>
+                            <p>Amélioration des temps de chargement et de la fluidité de l'application</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-code"></i> Technologies & Outils</h2>
+                    <div class="tech-stack">
+                        <div class="tech-category">
+                            <h3>Framework & Core</h3>
+                            <ul>
+                                <li><strong>React</strong> - Framework web moderne</li>
+                                <li><strong>React Native</strong> - Framework mobile cross-platform</li>
+                                <li><strong>Expo</strong> - Plateforme de développement</li>
+                                <li><strong>Expo Router</strong> - Système de navigation moderne</li>
+                                <li><strong>TypeScript</strong> - Typage statique pour JavaScript</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h3>UI & Design</h3>
+                            <ul>
+                                <li><strong>React Native Paper</strong> - Composants Material Design</li>
+                                <li><strong>StyleSheet API</strong> - Styling des composants</li>
+                                <li><strong>Animated API</strong> - Animations fluides</li>
+                                <li><strong>Custom Hooks</strong> - Logique réutilisable</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h3>State Management & Data</h3>
+                            <ul>
+                                <li><strong>React Context</strong> - Gestion d'état globale</li>
+                                <li><strong>AsyncStorage</strong> - Stockage local persistant</li>
+                                <li><strong>React Query</strong> - Gestion des requêtes API</li>
+                                <li><strong>Fichiers JSON</strong> - Traductions FR/EN structurées</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h3>Développement & Deploy</h3>
+                            <ul>
+                                <li><strong>EAS Build</strong> - Compilation et build</li>
+                                <li><strong>EAS Update</strong> - Mises à jour OTA</li>
+                                <li><strong>Git</strong> - Contrôle de version</li>
+                                <li><strong>Visual Studio Code</strong> - Éditeur de code</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-tasks"></i> Réalisations Concrètes</h2>
+                    <div class="challenges">
+                        <div class="challenge-item">
+                            <h3>Dark Mode Avancé</h3>
+                            <p>Création d'un système de thème complet avec détection des préférences système, persistance des choix utilisateur et transitions animées entre les modes. Gestion des couleurs dynamiques pour tous les composants.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Navigation Optimisée</h3>
+                            <p>Migration complète vers Expo Router avec mise en place de la navigation par fichiers, deep linking, et optimisation des performances de navigation. Réduction du temps de chargement des écrans de 30%.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Système de Traduction</h3>
+                            <p>Mise en place d'un système de traduction bilingue (français/anglais) avec fichiers de traduction structurés par langue. Création d'un sélecteur de langue permettant aux utilisateurs de changer la langue de l'interface sans redémarrage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-lightbulb"></i> Compétences Acquises</h2>
+                    <div class="skills-learned">
+                        <div class="skill-learned-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>Développement Web & Mobile</h3>
+                            <p>Maîtrise de React et React Native pour les spécificités du développement web et mobile (performances, UX, navigation)</p>
+                        </div>
+                        <div class="skill-learned-item">
+                            <i class="fas fa-users"></i>
+                            <h3>Travail en Équipe</h3>
+                            <p>Participation aux réunions hebdomadaires, revues de code, et collaboration avec l'équipe de développement</p>
+                        </div>
+                        <div class="skill-learned-item">
+                            <i class="fas fa-bug"></i>
+                            <h3>Debugging Avancé</h3>
+                            <p>Utilisation d'outils de débogage pour identifier et résoudre des bugs complexes en production</p>
+                        </div>
+                        <div class="skill-learned-item">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Optimisation</h3>
+                            <p>Analyse des performances et mise en œuvre de solutions pour améliorer la vitesse et la fluidité</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-rocket"></i> Impact & Résultats</h2>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <div class="result-number">30%</div>
+                            <p>Amélioration des performances</p>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">2</div>
+                            <p>Langues supportées</p>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">15+</div>
+                            <p>Bugs critiques résolus</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-actions">
+                    <a href="index.html#projets" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> Retour aux projets
+                    </a>
+                    <a href="index.html#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Me contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Diallo Moussa. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="https://github.com/DImoussa" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/moussa-diallo-a99706236/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" title="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

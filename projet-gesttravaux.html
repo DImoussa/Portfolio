@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>GestTravaux Pro - Portfolio Diallo Moussa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <h2>Moussa<span>.dev</span></h2>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Retour</a></li>
+                <li><a href="index.html#projets" class="nav-link">Autres Projets</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i>
+            </button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <div class="project-icon-large">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h1 class="project-title">GestTravaux Pro</h1>
+                <p class="project-subtitle">Système de gestion de travaux immobiliers</p>
+
+                <div class="project-tags">
+                    <span><i class="fab fa-php"></i> Symfony 7</span>
+                    <span><i class="fab fa-java"></i> JavaFX</span>
+                    <span><i class="fas fa-database"></i> MySQL</span>
+                    <span><i class="fas fa-mobile-alt"></i> PWA</span>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <div class="content-section">
+                    <h2><i class="fas fa-info-circle"></i> Présentation du Projet</h2>
+                    <p>GestTravaux Pro est une solution complète de gestion de travaux immobiliers développée avec Symfony 7 pour la partie web et JavaFX pour l'application desktop. Ce projet a été conçu pour faciliter la gestion des chantiers, des devis et des interventions dans le secteur du bâtiment.</p>
+                    <p>L'application offre une double interface : une version web progressive (PWA) accessible depuis n'importe quel navigateur, et une application desktop Java pour une utilisation offline complète.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-star"></i> Fonctionnalités Principales</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-tasks"></i>
+                            <h3>Gestion des Chantiers</h3>
+                            <p>Création, suivi et clôture des chantiers avec gestion des échéances et des ressources</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <h3>Système de Devis</h3>
+                            <p>Génération automatique de devis détaillés avec calcul des coûts et des marges</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-balance-scale"></i>
+                            <h3>Comparateur Multi-critères</h3>
+                            <p>Comparaison des fournisseurs et des matériaux selon plusieurs critères (prix, qualité, délai)</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Tableaux de Bord</h3>
+                            <p>Visualisation en temps réel des indicateurs clés de performance (KPI)</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <h3>Gestion des Équipes</h3>
+                            <p>Attribution des tâches, suivi des interventions et planning des équipes</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>Interface Responsive</h3>
+                            <p>Application web adaptée à tous les écrans (ordinateur, tablette, smartphone)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-code"></i> Technologies Utilisées</h2>
+                    <div class="tech-stack">
+                        <div class="tech-category">
+                            <h3>Backend & Framework</h3>
+                            <ul>
+                                <li><strong>Symfony 7</strong> - Framework PHP moderne</li>
+                                <li><strong>Doctrine ORM</strong> - Gestion de la base de données</li>
+                                <li><strong>API Platform</strong> - Création d'API REST</li>
+                                <li><strong>Symfony Security</strong> - Authentification et autorisation</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h3>Frontend Web</h3>
+                            <ul>
+                                <li><strong>Twig</strong> - Moteur de templates</li>
+                                <li><strong>Bootstrap 5</strong> - Framework CSS</li>
+                                <li><strong>JavaScript ES6+</strong> - Interactions dynamiques</li>
+                                <li><strong>PWA</strong> - Progressive Web App</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h3>Application Desktop</h3>
+                            <ul>
+                                <li><strong>JavaFX</strong> - Interface graphique</li>
+                                <li><strong>FXML</strong> - Design des interfaces</li>
+                                <li><strong>Scene Builder</strong> - Outil de design visuel</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h3>Base de Données & Outils</h3>
+                            <ul>
+                                <li><strong>MySQL 8</strong> - Base de données relationnelle</li>
+                                <li><strong>Docker</strong> - Conteneurisation</li>
+                                <li><strong>Git</strong> - Gestion de versions</li>
+                                <li><strong>PhpStorm</strong> - IDE principal</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-lightbulb"></i> Défis Techniques Relevés</h2>
+                    <div class="challenges">
+                        <div class="challenge-item">
+                            <h3>Architecture Hybride</h3>
+                            <p>Conception d'une architecture permettant de partager les données entre l'application web et desktop via une API REST sécurisée.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Performance</h3>
+                            <p>Optimisation des requêtes SQL avec Doctrine pour gérer efficacement de grandes quantités de données (chantiers, devis, factures).</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Sécurité</h3>
+                            <p>Mise en place d'un système d'authentification robuste avec gestion des rôles et permissions (admin, chef de chantier, ouvrier).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-rocket"></i> Résultats & Impact</h2>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <div class="result-number">40%</div>
+                            <p>Gain de temps dans la gestion des devis</p>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">100%</div>
+                            <p>Traçabilité des chantiers</p>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">30%</div>
+                            <p>Réduction des coûts grâce au comparateur</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-actions">
+                    <a href="index.html#projets" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> Retour aux projets
+                    </a>
+                    <a href="index.html#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Me contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Diallo Moussa. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="https://github.com/DImoussa" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/moussa-diallo-a99706236/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" title="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

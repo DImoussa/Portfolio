@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Arcade Designer - Portfolio Diallo Moussa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Optimisation pour zoom 100% - tout visible sans scroll */
+        .project-detail {
+            padding: 100px 20px 40px !important;
+        }
+
+        .project-content {
+            max-width: 1200px !important;
+        }
+
+        .content-section {
+            padding: 1.5rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .content-section h2 {
+            font-size: 1.4rem !important;
+            margin-bottom: 0.8rem !important;
+        }
+
+        .content-section p {
+            font-size: 0.95rem !important;
+            line-height: 1.5 !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        .game-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 1rem 0;
+        }
+
+        #gameCanvas {
+            border: 3px solid var(--primary-color);
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+            background: #1a1a2e;
+            max-width: 100%;
+            cursor: default;
+            width: 700px !important;
+            height: 500px !important;
+        }
+
+        #gameCanvas.game-active {
+            cursor: none;
+        }
+
+        .game-controls {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .game-controls .btn {
+            padding: 0.6rem 1.3rem;
+            font-size: 0.9rem;
+        }
+
+        .game-info {
+            display: flex;
+            gap: 1.2rem;
+            margin: 1rem 0;
+            font-size: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .game-info-item {
+            background: var(--card-bg);
+            padding: 0.7rem 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            min-width: 100px;
+        }
+
+        .game-info-item label {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .game-info-item .value {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .game-instructions {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .game-instructions h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .game-instructions ul {
+            list-style-position: inside;
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .game-instructions ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        .game-over-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .game-over-screen.show {
+            display: flex;
+        }
+
+        .game-over-content {
+            text-align: center;
+            animation: fadeInScale 0.5s ease;
+        }
+
+        .game-over-content h2 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .game-over-content .final-score {
+            font-size: 1.8rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Mobile - Canvas plus grand */
+        @media (max-width: 768px) {
+            .project-detail {
+                padding: 90px 10px 30px !important;
+            }
+
+            .content-section {
+                padding: 1rem !important;
+                margin-bottom: 0.8rem !important;
+            }
+
+            .content-section h2 {
+                font-size: 1.2rem !important;
+            }
+
+            .content-section p {
+                font-size: 0.9rem !important;
+            }
+
+            #gameCanvas {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 500px !important;
+                border-width: 2px;
+            }
+
+            .game-container {
+                margin: 0.5rem 0;
+            }
+
+            .game-info {
+                gap: 0.6rem;
+                margin: 0.8rem 0;
+            }
+
+            .game-info-item {
+                padding: 0.5rem 1rem;
+                min-width: 80px;
+            }
+
+            .game-info-item label {
+                font-size: 0.7rem;
+            }
+
+            .game-info-item .value {
+                font-size: 1.3rem;
+            }
+
+            .game-controls {
+                gap: 0.5rem;
+                margin-top: 0.8rem;
+            }
+
+            .game-controls .btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+                flex: 1;
+                min-width: 90px;
+            }
+
+            .game-instructions {
+                padding: 1rem;
+                margin: 0.8rem 0;
+            }
+
+            .game-instructions h3 {
+                font-size: 1rem;
+            }
+
+            .game-instructions ul {
+                font-size: 0.85rem;
+                line-height: 1.5;
+            }
+
+            .game-instructions ul li {
+                margin-bottom: 0.25rem;
+            }
+
+            .game-over-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .game-over-content .final-score {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #gameCanvas {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .game-container {
+                margin: 1rem 0;
+            }
+
+            .game-info {
+                gap: 0.5rem;
+                margin: 1rem 0;
+            }
+
+            .game-info-item {
+                padding: 0.6rem 1rem;
+                min-width: auto;
+                flex: 1;
+            }
+
+            .game-info-item label {
+                font-size: 0.75rem;
+            }
+
+            .game-info-item .value {
+                font-size: 1.3rem;
+            }
+
+            .game-controls {
+                gap: 0.5rem;
+                margin-top: 1rem;
+            }
+
+            .game-controls .btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+                flex: 1;
+            }
+
+            .game-instructions {
+                padding: 1.5rem;
+            }
+
+            .game-instructions h3 {
+                font-size: 1.1rem;
+            }
+
+            .game-instructions ul {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            .game-over-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .game-over-content .final-score {
+                font-size: 1.5rem;
+            }
+
+            .project-icon-large {
+                width: 70px;
+                height: 70px;
+            }
+
+            .project-icon-large i {
+                font-size: 2.5rem;
+            }
+
+            .project-title {
+                font-size: 1.8rem;
+            }
+
+            .project-subtitle {
+                font-size: 1rem;
+            }
+
+            .project-tags {
+                gap: 0.5rem;
+            }
+
+            .project-tags span {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-info {
+                flex-wrap: wrap;
+            }
+
+            .game-info-item {
+                padding: 0.5rem 0.8rem;
+            }
+
+            .game-info-item .value {
+                font-size: 1.1rem;
+            }
+
+            .game-controls {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .game-controls .btn {
+                width: 100%;
+            }
+
+            .game-instructions ul li {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <h2>Moussa<span>.dev</span></h2>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Retour</a></li>
+                <li><a href="index.html#projets" class="nav-link">Autres Projets</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i>
+            </button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <div class="project-icon-large">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h1 class="project-title">Arcade Designer</h1>
+                <p class="project-subtitle">Jeu de casse-briques rétro</p>
+
+                <div class="project-tags">
+                    <span><i class="fab fa-js"></i> JavaScript</span>
+                    <span><i class="fas fa-paint-brush"></i> Canvas API</span>
+                    <span><i class="fas fa-gamepad"></i> Game Dev</span>
+                    <span><i class="fas fa-code"></i> Vanilla JS</span>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <div class="content-section">
+                    <h2><i class="fas fa-info-circle"></i> Présentation</h2>
+                    <p>Bienvenue dans <strong>Arcade Designer</strong> ! Ce mini-jeu de casse-briques classique a été développé en <strong>JavaScript pur</strong> avec l'API Canvas pour vous divertir</p>
+                    <p>Le jeu combine des mécaniques de gameplay classiques avec un design moderne et des effets visuels attractifs. Utilisez la souris pour déplacer la raquette et détruisez toutes les briques pour gagner !</p>
+                </div>
+
+                <div class="game-container">
+                    <div class="game-info">
+                        <div class="game-info-item">
+                            <label>Score</label>
+                            <div class="value" id="scoreDisplay">0</div>
+                        </div>
+                        <div class="game-info-item">
+                            <label>Vies</label>
+                            <div class="value" id="livesDisplay">3</div>
+                        </div>
+                        <div class="game-info-item">
+                            <label>Niveau</label>
+                            <div class="value" id="levelDisplay">1</div>
+                        </div>
+                    </div>
+
+                    <canvas id="gameCanvas" width="700" height="500"></canvas>
+
+                    <div class="game-controls">
+                        <button class="btn btn-primary" id="startBtn">
+                            <i class="fas fa-play"></i> Démarrer
+                        </button>
+                        <button class="btn btn-secondary" id="pauseBtn">
+                            <i class="fas fa-pause"></i> Pause
+                        </button>
+                        <button class="btn btn-secondary" id="resetBtn">
+                            <i class="fas fa-redo"></i> Recommencer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-instructions">
+                    <h3><i class="fas fa-question-circle"></i> Comment jouer ?</h3>
+                    <ul>
+                        <li><strong>Sur ordinateur :</strong> Cliquez sur Démarrer, puis déplacez la souris pour contrôler la raquette</li>
+                        <li><strong>Sur mobile/tablette :</strong> Touchez l'écran pour démarrer, puis glissez votre doigt pour contrôler la raquette</li>
+                        <li><strong>Si votre doigt/souris sort</strong> - pas de panique ! La raquette reste en place et le jeu continue</li>
+                        <li><strong>Détruisez toutes les briques</strong> pour passer au niveau suivant</li>
+                        <li><strong>Ne laissez pas la balle tomber</strong> - vous avez 3 vies</li>
+                        <li><strong>Différentes briques</strong> donnent différents points (1-3 points)</li>
+                        <li><strong>La vitesse augmente</strong> à chaque niveau</li>
+                        <li><strong>Appuyez sur Pause</strong> ou <strong>ESPACE</strong> pour faire une pause</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-star"></i> Fonctionnalités</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-mouse"></i>
+                            <h3>Contrôle Souris</h3>
+                            <p>Déplacement fluide de la raquette avec suivi du curseur en temps réel</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-layer-group"></i>
+                            <h3>Niveaux Progressifs</h3>
+                            <p>Difficulté croissante avec augmentation de la vitesse de la balle</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-palette"></i>
+                            <h3>Design Coloré</h3>
+                            <p>Briques multicolores avec effets visuels et animations</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-trophy"></i>
+                            <h3>Système de Score</h3>
+                            <p>Points variables selon le type de brique détruite</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-pause-circle"></i>
+                            <h3>Pause & Reset</h3>
+                            <p>Contrôle complet avec pause et redémarrage du jeu</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>Responsive</h3>
+                            <p>S'adapte à toutes les tailles d'écran</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-actions">
+                    <a href="index.html#projets" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> Retour aux projets
+                    </a>
+                    <a href="index.html#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Me contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="game-over-screen" id="gameOverScreen">
+        <div class="game-over-content">
+            <h2 id="gameOverTitle">Game Over!</h2>
+            <p class="final-score">Score Final: <span id="finalScore">0</span></p>
+            <button class="btn btn-primary" id="playAgainBtn">
+                <i class="fas fa-redo"></i> Rejouer
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Diallo Moussa. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="https://github.com/DImoussa" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/moussa-diallo-a99706236/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" title="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
+
