@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             navMenu.classList.remove('active');

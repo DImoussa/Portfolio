@@ -19,6 +19,7 @@ function resizeCanvas() {
         config.ball.speed = 4.5;
     }
 
+
     if (isMobile) {
         config.brick.cols = 6;
         config.brick.rows = 4;

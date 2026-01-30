@@ -360,6 +360,7 @@ body {
     padding: 15px;
 }
 
+
 .profile-card::before {
     content: '';
     position: absolute;
