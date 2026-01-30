@@ -329,9 +329,9 @@ function nextLevel() {
 
     // Augmentation de vitesse plus douce sur mobile
     if (isMobile) {
-        ball.speed += 0.3;
+        ball.speed += 1.5;
     } else {
-        ball.speed += 0.5;
+        ball.speed += 2.0;
     }
 
     initBricks();

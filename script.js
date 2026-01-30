@@ -320,5 +320,214 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
 
+    // Système de traduction
+    const translations = {
+        fr: {
+            // Navigation
+            "Retour": "Retour",
+            "Autres Projets": "Autres Projets", 
+            "Contact": "Contact",
+            
+            // Header de projet
+            "Application Web & Mobile React": "Application Web & Mobile React",
+            "Développement d'applications web et mobiles cross-platform": "Développement d'applications web et mobiles cross-platform",
+            
+            // Section Kubiq
+            "Découvrir Kubiq": "Découvrir Kubiq",
+            "Visiter kubiq.net": "Visiter kubiq.net",
+            
+            // Sections principales
+            "Présentation du Projet": "Présentation du Projet",
+            "Missions Principales": "Missions Principales", 
+            "Technologies & Outils": "Technologies & Outils",
+            "Réalisations Concrètes": "Réalisations Concrètes",
+            "Compétences Acquises": "Compétences Acquises",
+            "Impact & Résultats": "Impact & Résultats",
+            
+            // Actions
+            "Retour aux projets": "Retour aux projets",
+            "Me contacter": "Me contacter",
+            "Retour en haut": "Retour en haut",
+            
+            // Missions
+            "Dark Mode": "Dark Mode",
+            "Traduction Multilingue": "Traduction Multilingue",
+            "Page Settings": "Page Settings",
+            "Barre de Recherche": "Barre de Recherche",
+            "Tests Unitaires (Jest)": "Tests Unitaires (Jest)",
+            "Suppression de Compte": "Suppression de Compte",
+            "Navigation Expo Router": "Navigation Expo Router",
+            "Correction de Bugs": "Correction de Bugs",
+            "Migration SDK Expo": "Migration SDK Expo",
+            
+            // Technologies
+            "Framework & Core": "Framework & Core",
+            "UI & Design": "UI & Design",
+            "State Management & Data": "State Management & Data",
+            "Développement & Deploy": "Développement & Deploy",
+            
+            // Réalisations
+            "Migration Web vers Mobile Native": "Migration Web vers Mobile Native",
+            "Conformité App Store Apple": "Conformité App Store Apple",
+            "Recherche Avancée & UX": "Recherche Avancée & UX",
+            "Conformité RGPD": "Conformité RGPD",
+            "Dark Mode Avancé": "Dark Mode Avancé",
+            "Navigation Optimisée": "Navigation Optimisée",
+            "Système de Traduction": "Système de Traduction",
+            
+            // Compétences
+            "Développement Web & Mobile": "Développement Web & Mobile",
+            "Travail en Équipe": "Travail en Équipe",
+            "Debugging Avancé": "Debugging Avancé",
+            "Optimisation": "Optimisation",
+            
+            // Métriques
+            "Amélioration des performances": "Amélioration des performances",
+            "Langues supportées": "Langues supportées", 
+            "Bugs critiques résolus": "Bugs critiques résolus"
+        },
+        
+        en: {
+            // Navigation
+            "Retour": "Back",
+            "Autres Projets": "Other Projects",
+            "Contact": "Contact",
+            
+            // Header de projet
+            "Application Web & Mobile React": "Web & Mobile React Application",
+            "Développement d'applications web et mobiles cross-platform": "Cross-platform web and mobile application development",
+            
+            // Section Kubiq
+            "Découvrir Kubiq": "Discover Kubiq",
+            "Visiter kubiq.net": "Visit kubiq.net",
+            
+            // Sections principales
+            "Présentation du Projet": "Project Overview",
+            "Missions Principales": "Main Missions",
+            "Technologies & Outils": "Technologies & Tools", 
+            "Réalisations Concrètes": "Concrete Achievements",
+            "Compétences Acquises": "Skills Acquired",
+            "Impact & Résultats": "Impact & Results",
+            
+            // Actions
+            "Retour aux projets": "Back to projects",
+            "Me contacter": "Contact me", 
+            "Retour en haut": "Back to top",
+            
+            // Missions
+            "Dark Mode": "Dark Mode",
+            "Traduction Multilingue": "Multilingual Translation", 
+            "Page Settings": "Settings Page",
+            "Barre de Recherche": "Search Bar",
+            "Tests Unitaires (Jest)": "Unit Tests (Jest)",
+            "Suppression de Compte": "Account Deletion",
+            "Navigation Expo Router": "Expo Router Navigation",
+            "Correction de Bugs": "Bug Fixes",
+            "Migration SDK Expo": "Expo SDK Migration",
+            
+            // Technologies
+            "Framework & Core": "Framework & Core",
+            "UI & Design": "UI & Design", 
+            "State Management & Data": "State Management & Data",
+            "Développement & Deploy": "Development & Deploy",
+            
+            // Réalisations
+            "Migration Web vers Mobile Native": "Web to Mobile Native Migration",
+            "Conformité App Store Apple": "Apple App Store Compliance",
+            "Recherche Avancée & UX": "Advanced Search & UX",
+            "Conformité RGPD": "GDPR Compliance",
+            "Dark Mode Avancé": "Advanced Dark Mode",
+            "Navigation Optimisée": "Optimized Navigation", 
+            "Système de Traduction": "Translation System",
+            
+            // Compétences
+            "Développement Web & Mobile": "Web & Mobile Development",
+            "Travail en Équipe": "Teamwork",
+            "Debugging Avancé": "Advanced Debugging",
+            "Optimisation": "Optimization",
+            
+            // Métriques
+            "Amélioration des performances": "Performance improvement",
+            "Langues supportées": "Languages supported",
+            "Bugs critiques résolus": "Critical bugs resolved"
+        }
+    };
+
+    // Gestion de la langue
+    let currentLanguage = localStorage.getItem('portfolio-language') || 'fr';
+    
+    const languageToggle = document.getElementById('languageToggle');
+    const currentLangSpan = document.getElementById('currentLang');
+    
+    // Initialiser l'affichage de la langue
+    if (currentLanguage === 'en') {
+        currentLangSpan.textContent = 'EN/FR';
+        translatePage('en');
+    } else {
+        currentLangSpan.textContent = 'FR/EN';
+    }
+    
+    // Fonction de traduction
+    function translatePage(lang) {
+        // Traduire tous les éléments avec data-fr et data-en
+        const elementsWithData = document.querySelectorAll('[data-fr][data-en]');
+        elementsWithData.forEach(element => {
+            if (lang === 'en') {
+                element.textContent = element.getAttribute('data-en');
+            } else {
+                element.textContent = element.getAttribute('data-fr');
+            }
+        });
+        
+        // Traduire les éléments par leur contenu textuel
+        const elementsToTranslate = document.querySelectorAll('h1, h2, h3, p, a, span:not(#currentLang)');
+        elementsToTranslate.forEach(element => {
+            const text = element.textContent.trim();
+            if (translations[lang] && translations[lang][text]) {
+                element.textContent = translations[lang][text];
+            }
+        });
+        
+        // Mettre à jour le titre de la page
+        if (lang === 'en') {
+            document.title = 'Web & Mobile React Application - Moussa Diallo Portfolio';
+        } else {
+            document.title = 'Application Web & Mobile React - Portfolio Diallo Moussa';
+        }
+    }
+    
+    // Événement de clic sur le toggle de langue
+    if (languageToggle) {
+        languageToggle.addEventListener('click', function() {
+            currentLanguage = currentLanguage === 'fr' ? 'en' : 'fr';
+            
+            if (currentLanguage === 'en') {
+                currentLangSpan.textContent = 'EN/FR';
+                translatePage('en');
+            } else {
+                currentLangSpan.textContent = 'FR/EN';
+                translatePage('fr');
+            }
+            
+            // Sauvegarder la préférence
+            localStorage.setItem('portfolio-language', currentLanguage);
+            
+            // Animation du toggle
+            languageToggle.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                languageToggle.style.transform = 'scale(1)';
+            }, 150);
+        });
+        
+        // Effet de survol
+        languageToggle.addEventListener('mouseenter', function() {
+            this.style.opacity = '0.8';
+        });
+        
+        languageToggle.addEventListener('mouseleave', function() {
+            this.style.opacity = '1';
+        });
+    }
+
 });
 
