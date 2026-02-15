@@ -238,28 +238,27 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
     color: white;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
 }
 
 .btn-secondary {
-    background: var(--bg-secondary);
-    color: var(--text-color);
-    border: 2px solid var(--primary-color);
-}
-
-.btn-secondary:hover {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
     color: white;
 }
 
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+}
+
 .btn-fun {
-    background: linear-gradient(135deg, #f9ca24, #f39c12, #e74c3c);
+    background: linear-gradient(135deg, #a855f7, #ec4899);
     color: white;
     position: relative;
     overflow: hidden;
@@ -273,14 +272,14 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transform: rotate(45deg);
     animation: shine-fun 3s infinite;
 }
 
 .btn-fun:hover {
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 10px 30px rgba(243, 156, 18, 0.5);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
     animation: none;
 }
 
@@ -291,10 +290,10 @@ body {
 
 @keyframes pulse-fun {
     0%, 100% {
-        box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.7);
+        box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.5);
     }
     50% {
-        box-shadow: 0 0 0 10px rgba(243, 156, 18, 0);
+        box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
     }
 }
 
@@ -885,14 +884,15 @@ section {
 }
 
 .btn-cv {
-    background: linear-gradient(135deg, #dc2626, #ef4444);
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    color: white;
     border: none;
     transition: all 0.3s ease;
 }
 
 .btn-cv:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
 }
 
 .project-detail {
