@@ -113,6 +113,7 @@ let ball = {
 
 let bricks = [];
 let mouseX = canvas.width / 2;
+let mouseY = canvas.height / 2;
 let particles = [];
 
 
@@ -324,20 +325,34 @@ function checkWin() {
     return true;
 }
 
+let levelTransition = {
+    active: false,
+    countdown: 0,
+    startTime: 0,
+    message: ''
+};
+
 function nextLevel() {
     const isMobile = window.innerWidth <= 768;
     gameState.level++;
 
-    // Augmentation de vitesse plus douce sur mobile
+    // Augmentation de vitesse plus douce
     if (isMobile) {
-        ball.speed += 1.5;
+        ball.speed += 0.8;
     } else {
-        ball.speed += 2.0;
+        ball.speed += 1.0;
     }
 
     initBricks();
     resetBallAndPaddle();
     updateDisplay();
+
+    // Lancer le timer de 3 secondes avant de reprendre
+    levelTransition.active = true;
+    levelTransition.countdown = 3;
+    levelTransition.startTime = Date.now();
+    levelTransition.message = `Niveau ${gameState.level}`;
+    gameState.paused = true;
 
     console.log(`⏭️ Niveau ${gameState.level} - Vitesse: ${ball.speed}`);
 }
@@ -355,8 +370,10 @@ function resetBallAndPaddle() {
     ball.x = canvas.width / 2;
     ball.y = canvas.height - 50;
     ball.radius = config.ball.radius;
-    ball.dx = ball.speed * (Math.random() > 0.5 ? 1 : -1);
-    ball.dy = -ball.speed;
+    // Angle léger entre -30° et 30° pour une trajectoire plus droite
+    const angle = (Math.random() - 0.5) * Math.PI / 3;
+    ball.dx = ball.speed * Math.sin(angle);
+    ball.dy = -ball.speed * Math.cos(angle);
 }
 
 function updateBall() {
@@ -387,6 +404,12 @@ function updateBall() {
             gameOver();
         } else {
             resetBallAndPaddle();
+            // Timer de 3 secondes avant de reprendre après perte de vie
+            levelTransition.active = true;
+            levelTransition.countdown = 3;
+            levelTransition.startTime = Date.now();
+            levelTransition.message = `Vies restantes : ${gameState.lives}`;
+            gameState.paused = true;
         }
     }
 }
@@ -401,15 +424,63 @@ function updatePaddle() {
     }
 }
 
+function drawCursor() {
+    if (!gameState.running) return;
+    const cursorX = mouseX;
+    const cursorY = mouseY;
+    ctx.beginPath();
+    ctx.arc(cursorX, cursorY, 6, 0, Math.PI * 2);
+    const gradient = ctx.createRadialGradient(cursorX, cursorY, 0, cursorX, cursorY, 6);
+    gradient.addColorStop(0, '#ffffff');
+    gradient.addColorStop(1, '#6366f1');
+    ctx.fillStyle = gradient;
+    if (enableEffects) {
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = '#6366f1';
+    }
+    ctx.fill();
+    ctx.closePath();
+    if (enableEffects) {
+        ctx.shadowBlur = 0;
+    }
+}
+
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBricks();
     drawPaddle();
     drawBall();
+    drawCursor();
     drawStats();
     updateParticles();
 
-    if (gameState.paused) {
+    // Gérer le countdown entre niveaux
+    if (levelTransition.active) {
+        const elapsed = Date.now() - levelTransition.startTime;
+        const remaining = Math.ceil(3 - elapsed / 1000);
+
+        if (remaining <= 0) {
+            levelTransition.active = false;
+            gameState.paused = false;
+        } else {
+            levelTransition.countdown = remaining;
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.textAlign = 'center';
+
+            ctx.fillStyle = '#6366f1';
+            ctx.font = 'bold 22px Inter, sans-serif';
+            ctx.fillText(levelTransition.message, canvas.width / 2, canvas.height / 2 - 45);
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 64px Inter, sans-serif';
+            ctx.fillText(remaining, canvas.width / 2, canvas.height / 2 + 20);
+
+            ctx.fillStyle = '#d1d5db';
+            ctx.font = '16px Inter, sans-serif';
+            ctx.fillText('Repositionnez votre souris...', canvas.width / 2, canvas.height / 2 + 55);
+        }
+    } else if (gameState.paused) {
         ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = '#ffffff';
@@ -455,6 +526,7 @@ function gameOver() {
 
     gameOverScreen.classList.add('show');
     canvas.classList.remove('game-active');
+    canvas.style.cursor = 'default';
 }
 
 function startGame() {
@@ -463,6 +535,7 @@ function startGame() {
         gameState.running = true;
         gameState.paused = false;
         canvas.classList.add('game-active');
+        canvas.style.cursor = 'none';
         console.log('▶️ Jeu démarré !');
     }
 }
@@ -518,6 +591,7 @@ function resetGame() {
     }
 
     canvas.classList.remove('game-active');
+    canvas.style.cursor = 'default';
 
     console.log('🔄 Jeu réinitialisé complètement !', {
         score: gameState.score,
@@ -532,9 +606,14 @@ let isMouseInCanvas = true;
 canvas.addEventListener('mousemove', (e) => {
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
     const newMouseX = (e.clientX - rect.left) * scaleX;
+    const newMouseY = (e.clientY - rect.top) * scaleY;
     if (newMouseX >= 0 && newMouseX <= canvas.width) {
         mouseX = newMouseX;
+    }
+    if (newMouseY >= 0 && newMouseY <= canvas.height) {
+        mouseY = newMouseY;
     }
 });
 
@@ -542,10 +621,15 @@ canvas.addEventListener('touchmove', (e) => {
     e.preventDefault();
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
     const touch = e.touches[0];
     const newMouseX = (touch.clientX - rect.left) * scaleX;
+    const newMouseY = (touch.clientY - rect.top) * scaleY;
     if (newMouseX >= 0 && newMouseX <= canvas.width) {
         mouseX = newMouseX;
+    }
+    if (newMouseY >= 0 && newMouseY <= canvas.height) {
+        mouseY = newMouseY;
     }
 }, { passive: false });
 
