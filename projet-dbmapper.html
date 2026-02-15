@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Doctrine DB Mapper Bundle - Portfolio Diallo Moussa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <h2>Moussa<span>.dev</span></h2>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Retour</a></li>
+                <li><a href="index.html#projets" class="nav-link">Autres Projets</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i>
+            </button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <div class="project-icon-large">
+                    <i class="fas fa-cubes"></i>
+                </div>
+                <h1 class="project-title">Doctrine DB Mapper Bundle</h1>
+                <p class="project-subtitle">Bundle Symfony open-source publié sur Packagist</p>
+
+                <div class="project-tags">
+                    <span><i class="fab fa-symfony"></i> Symfony Bundle</span>
+                    <span><i class="fas fa-database"></i> Doctrine ORM</span>
+                    <span><i class="fas fa-terminal"></i> CLI</span>
+                    <span><i class="fab fa-php"></i> PHP 8.1+</span>
+                    <span><i class="fas fa-box-open"></i> Packagist</span>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <div class="content-section">
+                    <h2><i class="fas fa-info-circle"></i> Présentation</h2>
+                    <p>
+                        <strong>Doctrine DB Mapper Bundle</strong> est un bundle Symfony open-source que j'ai conçu et publié sur 
+                        <a href="https://packagist.org/packages/dimoussa/doctrine-db-mapper-bundle" target="_blank" style="color: var(--primary);">Packagist</a>.
+                        Il permet de <strong>générer automatiquement des entités Doctrine</strong> à partir d'une base de données MySQL existante,
+                        avec un support complet des relations (OneToMany, ManyToOne, ManyToMany, OneToOne).
+                    </p>
+                    <p>
+                        Ce projet est né d'un besoin concret : lors de la reprise d'un projet existant avec une base de données déjà en place,
+                        la création manuelle des entités Doctrine est fastidieuse et source d'erreurs. Ce bundle automatise entièrement ce processus
+                        via deux commandes Symfony interactives.
+                    </p>
+                    <p>
+                        Installable en une seule commande : <code>composer require dimoussa/doctrine-db-mapper-bundle</code>
+                    </p>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-star"></i> Fonctionnalités Principales</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-magic"></i>
+                            <h3>Génération Automatique</h3>
+                            <p>Analyse le schéma MySQL et génère les entités Doctrine avec les types PHP corrects, les annotations ORM et les repositories associés</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-link"></i>
+                            <h3>Détection des Relations</h3>
+                            <p>Analyse automatique des clés étrangères pour générer les relations bidirectionnelles : OneToMany, ManyToOne, ManyToMany, OneToOne</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-terminal"></i>
+                            <h3>Mode Interactif</h3>
+                            <p>Interface CLI interactive pour modifier le schéma : ajouter des colonnes, gérer les relations, prévisualiser le SQL avant exécution</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-eye"></i>
+                            <h3>Prévisualisation SQL</h3>
+                            <p>Système de plan de changements avec prévisualisation SQL complète avant toute modification réelle de la base de données</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-cogs"></i>
+                            <h3>Getters / Setters / Collections</h3>
+                            <p>Génération automatique des getters, setters et méthodes add/remove pour les collections Doctrine</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-box-open"></i>
+                            <h3>Package Packagist</h3>
+                            <p>Distribué en tant que package Composer sur Packagist, installable et utilisable dans n'importe quel projet Symfony</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-rocket"></i> Commandes Disponibles</h2>
+
+                    <div class="symfony-projects">
+                        <div class="symfony-project-item">
+                            <h3><i class="fas fa-file-code"></i> dbmapper:generate-entities</h3>
+                            <p>Génère automatiquement toutes les entités Doctrine depuis la base de données :</p>
+                            <ul>
+                                <li>Analyse complète du schéma (tables, colonnes, types, contraintes)</li>
+                                <li>Détection automatique des clés primaires et étrangères</li>
+                                <li>Génération des relations bidirectionnelles entre entités</li>
+                                <li>Création des repositories avec méthodes de base</li>
+                                <li>Option <code>--table</code> pour cibler une table spécifique</li>
+                            </ul>
+                        </div>
+
+                        <div class="symfony-project-item">
+                            <h3><i class="fas fa-edit"></i> dbmapper:modify-entities</h3>
+                            <p>Mode interactif pour modifier le schéma de la base de données :</p>
+                            <ul>
+                                <li>Lister et explorer les tables et leurs colonnes</li>
+                                <li>Ajouter de nouvelles colonnes avec type Doctrine et nullable</li>
+                                <li>Créer des relations (ManyToOne, OneToMany, ManyToMany, OneToOne)</li>
+                                <li>Plan de changements avec récapitulatif avant exécution</li>
+                                <li>Prévisualisation du SQL généré avant application</li>
+                                <li>Application sécurisée avec confirmation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-laptop-code"></i> Exemple de Sortie</h2>
+
+                    <div class="symfony-projects">
+                        <div class="symfony-project-item">
+                            <h3><i class="fas fa-play"></i> Génération des entités</h3>
+                            <pre style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; overflow-x: auto; font-size: 0.9rem; line-height: 1.6;">
+📊 Analyse du schéma de la base de données...
+🔗 Analyse des relations entre tables...
+⚙️  Génération des entités et repositories...
+✅ User.php généré
+✅ Post.php généré
+✅ Comment.php généré
+🎉 3 entités créées avec succès !</pre>
+                        </div>
+
+                        <div class="symfony-project-item">
+                            <h3><i class="fas fa-terminal"></i> Mode interactif</h3>
+                            <pre style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; overflow-x: auto; font-size: 0.9rem; line-height: 1.6;">
+[DbMapper] Mode interactif de modification du schéma
+
+Que veux-tu faire ?
+  [0] Lister les tables
+  [1] Choisir une table à modifier
+  [2] Afficher le plan des changements en cours
+  [3] Prévisualiser le SQL qui sera exécuté
+  [4] Appliquer les changements dans la base de données
+  [5] Quitter
+ > 1
+
+Table sélectionnée : users
+  [0] Voir les attributs (colonnes)
+  [1] Ajouter un nouvel attribut
+  [2] Gérer les relations
+  [3] Revenir au menu principal
+ > 1
+
+Nom du nouvel attribut (colonne) : avatar
+Type Doctrine : string
+Nullable : oui
+
+Récapitulatif de la nouvelle colonne :
+ - Table : users
+ - Nom   : avatar
+ - Type  : string
+ - NULL  : oui
+
+Requêtes SQL qui seront exécutées :
+  ALTER TABLE users ADD avatar VARCHAR(255) DEFAULT NULL;
+
+✓ Tous les changements ont été appliqués avec succès !</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-sitemap"></i> Architecture du Bundle</h2>
+
+                    <div class="symfony-projects">
+                        <div class="symfony-project-item">
+                            <h3><i class="fas fa-folder-open"></i> Structure des fichiers</h3>
+                            <pre style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; overflow-x: auto; font-size: 0.9rem; line-height: 1.6;">
+doctrine-db-mapper-bundle/
+├── Command/
+│   ├── GenerateEntitiesCommand.php    # Commande de génération
+│   └── ModifyEntitiesCommand.php      # Commande interactive
+├── Service/
+│   ├── SchemaExtractor.php            # Extraction du schéma MySQL
+│   ├── EntityGenerator.php            # Génération des entités PHP
+│   ├── RelationshipAnalyzer.php       # Analyse des relations
+│   ├── SchemaExplorer.php             # Exploration interactive
+│   ├── SchemaModifier.php             # Modification du schéma
+│   ├── SchemaChangePlanner.php        # Plan de changements
+│   └── DoctrineTypeRegistry.php       # Registre des types Doctrine
+├── DependencyInjection/
+│   ├── DbMapperExtension.php          # Extension Symfony
+│   └── Configuration.php              # Configuration du bundle
+├── Exception/
+│   ├── DbMapperException.php          # Exception de base
+│   ├── EntityGenerationException.php  # Erreurs de génération
+│   └── SchemaExtractionException.php  # Erreurs d'extraction
+├── Resources/config/services.yaml     # Déclaration des services
+├── DbMapperBundle.php                 # Classe principale du bundle
+└── composer.json                      # Métadonnées Packagist</pre>
+                        </div>
+
+                        <div class="symfony-project-item">
+                            <h3><i class="fas fa-puzzle-piece"></i> Services & Responsabilités</h3>
+                            <ul>
+                                <li><strong>SchemaExtractor</strong> — Interroge <code>information_schema</code> pour récupérer tables, colonnes, clés primaires et étrangères</li>
+                                <li><strong>RelationshipAnalyzer</strong> — Détecte les relations entre tables (FK, tables de jonction ManyToMany) et génère les métadonnées Doctrine</li>
+                                <li><strong>EntityGenerator</strong> — Produit le code PHP des entités avec attributs ORM, types, getters/setters et repositories</li>
+                                <li><strong>SchemaExplorer</strong> — Fournit une API de lecture interactive du schéma pour la commande modify</li>
+                                <li><strong>SchemaChangePlanner</strong> — Accumule les changements demandés (colonnes, relations) avant exécution</li>
+                                <li><strong>SchemaModifier</strong> — Traduit le plan de changements en SQL et l'exécute via Doctrine DBAL</li>
+                                <li><strong>DoctrineTypeRegistry</strong> — Mappe les types Doctrine vers les types SQL natifs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-code"></i> Stack Technique</h2>
+                    <div class="tech-stack">
+                        <div class="tech-category">
+                            <h3>Langage & Framework</h3>
+                            <ul>
+                                <li><strong>PHP 8.1+</strong> — Typage strict, enums, attributs</li>
+                                <li><strong>Symfony 6 / 7</strong> — Console, DependencyInjection, Config</li>
+                                <li><strong>Doctrine ORM 2.14 / 3.0</strong> — Mapping objet-relationnel</li>
+                                <li><strong>Doctrine DBAL 3 / 4</strong> — Abstraction base de données</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h3>Concepts & Patterns</h3>
+                            <ul>
+                                <li><strong>Symfony Bundle</strong> — Architecture modulaire réutilisable</li>
+                                <li><strong>Service Container</strong> — Injection de dépendances</li>
+                                <li><strong>Command Pattern</strong> — Commandes CLI interactives</li>
+                                <li><strong>Change Planner</strong> — Accumulation et preview des modifications</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h3>Base de Données</h3>
+                            <ul>
+                                <li><strong>MySQL / MariaDB</strong> — Base de données cible</li>
+                                <li><strong>information_schema</strong> — Introspection du schéma</li>
+                                <li><strong>DDL dynamique</strong> — ALTER TABLE, CREATE TABLE</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h3>Distribution & Outils</h3>
+                            <ul>
+                                <li><strong>Composer / Packagist</strong> — Distribution du package</li>
+                                <li><strong>PSR-4 Autoloading</strong> — Chargement automatique</li>
+                                <li><strong>Git / GitHub</strong> — Versioning et hébergement</li>
+                                <li><strong>PHPUnit</strong> — Tests unitaires</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-graduation-cap"></i> Compétences Acquises</h2>
+                    <div class="challenges">
+                        <div class="challenge-item">
+                            <h3>Création d'un Bundle Symfony</h3>
+                            <p>Conception d'un bundle réutilisable et distribué avec sa propre configuration, ses services auto-wired, son extension DependencyInjection et ses commandes CLI.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Introspection de Base de Données</h3>
+                            <p>Maîtrise de l'interrogation du schéma MySQL via information_schema et Doctrine DBAL pour extraire dynamiquement la structure de n'importe quelle base de données.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Génération de Code</h3>
+                            <p>Développement d'un moteur de génération de code PHP produisant des entités Doctrine conformes aux bonnes pratiques : attributs ORM, typage strict, relations bidirectionnelles.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Analyse Relationnelle</h3>
+                            <p>Algorithme de détection automatique des relations entre tables : identification des clés étrangères, détection des tables de jonction ManyToMany, gestion de la bidirectionnalité.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Interface CLI Interactive</h3>
+                            <p>Conception d'une interface en ligne de commande interactive avec menus, sous-menus, validation des entrées, plan de changements et prévisualisation SQL.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h3>Publication Open-Source</h3>
+                            <p>Publication d'un package sur Packagist avec gestion du versioning, rédaction du README bilingue, configuration Composer et distribution publique.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-rocket"></i> Résultats</h2>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <div class="result-number">7</div>
+                            <p>Services architecturés</p>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">2</div>
+                            <p>Commandes Symfony</p>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">4</div>
+                            <p>Types de relations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-actions">
+                    <a href="https://github.com/DImoussa/doctrine-db-mapper-bundle" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-github"></i> Voir sur GitHub
+                    </a>
+                    <a href="https://packagist.org/packages/dimoussa/doctrine-db-mapper-bundle" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-box-open"></i> Voir sur Packagist
+                    </a>
+                    <a href="index.html#projets" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Retour aux projets
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Diallo Moussa. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="https://github.com/DImoussa" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/moussa-diallo-a99706236/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" title="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

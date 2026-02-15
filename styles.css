@@ -48,11 +48,14 @@ body {
 .navbar {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     background: var(--card-bg);
     box-shadow: var(--shadow);
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .navbar.scrolled {
@@ -432,7 +435,7 @@ section {
 .about {
     background: var(--bg-secondary);
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .about-text p {
@@ -1262,8 +1265,10 @@ section {
     .hero {
         flex-direction: column;
         text-align: center;
-        padding: 80px 15px 30px;
+        padding: 100px 15px 60px;
         gap: 0;
+        min-height: 100vh;
+        min-height: 100dvh;
     }
 
     .hero-content {

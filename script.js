@@ -189,9 +189,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroSection = document.querySelector('.hero');
 
     window.addEventListener('scroll', function() {
+        
+        if (window.innerWidth <= 768) return;
         const scrolled = window.pageYOffset;
         if (heroSection && scrolled < window.innerHeight) {
-            heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
+            heroSection.style.transform = `translateY(${scrolled * 0.3}px)`;
         }
     });
 
