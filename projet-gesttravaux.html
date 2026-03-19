@@ -34,58 +34,75 @@
         <div class="container">
             <div class="project-header">
                 <div class="project-icon-large">
-                    <i class="fas fa-building"></i>
+                    <i class="fab fa-php"></i>
                 </div>
-                <h1 class="project-title">GestTravaux Pro</h1>
-                <p class="project-subtitle">Système de gestion de travaux immobiliers (Gestion de syndic copropriété)</p>
+                <h1 class="project-title">GestTravaux Pro — Symfony</h1>
+                <p class="project-subtitle">Application web multi-acteurs pour la gestion de travaux immobiliers (IMMOSYNC)</p>
 
                 <div class="project-tags">
                     <span><i class="fab fa-php"></i> Symfony 7</span>
-                    <span><i class="fab fa-java"></i> JavaFX</span>
+                    <span><i class="fas fa-database"></i> Doctrine ORM</span>
                     <span><i class="fas fa-database"></i> MySQL</span>
                     <span><i class="fas fa-mobile-alt"></i> PWA</span>
+                    <span><i class="fab fa-js"></i> Twig</span>
                 </div>
             </div>
 
             <div class="project-content">
                 <div class="content-section">
                     <h2><i class="fas fa-info-circle"></i> Présentation du Projet</h2>
-                    <p>GestTravaux Pro est une solution complète de gestion de travaux immobiliers développée avec Symfony 7 pour la partie web et JavaFX pour l'application desktop. Ce projet a été conçu pour faciliter la gestion des chantiers, des devis et des interventions dans le secteur du bâtiment.</p>
-                    <p>L'application offre une double interface : une version web progressive (PWA) accessible depuis n'importe quel navigateur, et une application desktop Java pour une utilisation offline complète.</p>
+                    <p>GestTravaux Pro est un système de gestion de travaux immobiliers développé pour la société IMMOSYNC. L'application Symfony 7 constitue la face web du projet : elle centralise les accès des inspecteurs terrain (PWA mobile), des entrepreneurs, des propriétaires et des administrateurs.</p>
+                    <p>Elle partage une base de données MySQL unique avec l'application Java Desktop, garantissant la cohérence des données entre tous les acteurs.</p>
                 </div>
 
                 <div class="content-section">
-                    <h2><i class="fas fa-star"></i> Fonctionnalités Principales</h2>
+                    <h2><i class="fas fa-users"></i> Acteurs & Interfaces</h2>
                     <div class="features-grid">
                         <div class="feature-item">
-                            <i class="fas fa-tasks"></i>
-                            <h3>Gestion des Chantiers</h3>
-                            <p>Création, suivi et clôture des chantiers avec gestion des échéances et des ressources</p>
+                            <i class="fas fa-hard-hat"></i>
+                            <h3>Inspecteur (PWA Mobile)</h3>
+                            <p>Consultation des chantiers assignés, localisation sur carte, saisie d'observations, prise de photos, ajout de documents (DPE, diagnostic bruit…)</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-tools"></i>
+                            <h3>Espace Entrepreneur</h3>
+                            <p>Dashboard des demandes de chantiers, consultation du devis type, soumission de propositions avec formulaires validés par Symfony, suivi des statuts</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-user-tie"></i>
+                            <h3>Espace Propriétaire</h3>
+                            <p>Consultation des chantiers liés à ses biens, validation des devis préliminaires, suivi de l'avancement des travaux</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Administration Système</h3>
+                            <p>Gestion des utilisateurs, des rôles, des paramètres applicatifs et supervision globale depuis une interface web sécurisée</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-star"></i> Fonctionnalités Clés</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h3>Carte Interactive</h3>
+                            <p>Localisation des biens immobiliers sur une carte pour les inspecteurs lors de leurs visites terrain</p>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-file-invoice-dollar"></i>
-                            <h3>Système de Devis</h3>
-                            <p>Génération automatique de devis détaillés avec calcul des coûts et des marges</p>
+                            <h3>Gestion des Devis</h3>
+                            <p>Consultation du devis type, soumission des propositions par les entrepreneurs avec leurs prestations détaillées</p>
                         </div>
                         <div class="feature-item">
-                            <i class="fas fa-balance-scale"></i>
-                            <h3>Comparateur Multi-critères</h3>
-                            <p>Comparaison des fournisseurs et des matériaux selon plusieurs critères (prix, qualité, délai)</p>
+                            <i class="fas fa-file-upload"></i>
+                            <h3>Documents & Photos</h3>
+                            <p>Upload et gestion des fichiers d'inspection (DPE, diagnostics, photos) directement depuis le terrain</p>
                         </div>
                         <div class="feature-item">
-                            <i class="fas fa-chart-line"></i>
-                            <h3>Tableaux de Bord</h3>
-                            <p>Visualisation en temps réel des indicateurs clés de performance (KPI)</p>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-users"></i>
-                            <h3>Gestion des Équipes</h3>
-                            <p>Attribution des tâches, suivi des interventions et planning des équipes</p>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-mobile-alt"></i>
-                            <h3>Interface Responsive</h3>
-                            <p>Application web adaptée à tous les écrans (ordinateur, tablette, smartphone)</p>
+                            <i class="fas fa-bell"></i>
+                            <h3>Notifications Email</h3>
+                            <p>Alertes automatiques aux entrepreneurs lors de nouvelles propositions de chantiers</p>
                         </div>
                     </div>
                 </div>
@@ -94,75 +111,49 @@
                     <h2><i class="fas fa-code"></i> Technologies Utilisées</h2>
                     <div class="tech-stack">
                         <div class="tech-category">
-                            <h3>Backend & Framework</h3>
+                            <h3>Backend</h3>
                             <ul>
-                                <li><strong>Symfony 7</strong> - Framework PHP moderne</li>
-                                <li><strong>Doctrine ORM</strong> - Gestion de la base de données</li>
-                                <li><strong>API Platform</strong> - Création d'API REST</li>
-                                <li><strong>Symfony Security</strong> - Authentification et autorisation</li>
+                                <li><strong>Symfony 7</strong> - Framework PHP</li>
+                                <li><strong>Doctrine ORM</strong> - Mapping objet-relationnel</li>
+                                <li><strong>Symfony Security</strong> - Authentification & rôles</li>
+                                <li><strong>Symfony Forms</strong> - Validation des formulaires</li>
                             </ul>
                         </div>
                         <div class="tech-category">
-                            <h3>Frontend Web</h3>
+                            <h3>Frontend</h3>
                             <ul>
                                 <li><strong>Twig</strong> - Moteur de templates</li>
-                                <li><strong>Bootstrap 5</strong> - Framework CSS</li>
+                                <li><strong>Bootstrap 5</strong> - Framework CSS responsive</li>
                                 <li><strong>JavaScript ES6+</strong> - Interactions dynamiques</li>
-                                <li><strong>PWA</strong> - Progressive Web App</li>
+                                <li><strong>PWA</strong> - Progressive Web App (offline)</li>
                             </ul>
                         </div>
                         <div class="tech-category">
-                            <h3>Application Desktop</h3>
+                            <h3>Base de données & Outils</h3>
                             <ul>
-                                <li><strong>JavaFX</strong> - Interface graphique</li>
-                                <li><strong>FXML</strong> - Design des interfaces</li>
-                                <li><strong>Scene Builder</strong> - Outil de design visuel</li>
-                            </ul>
-                        </div>
-                        <div class="tech-category">
-                            <h3>Base de Données & Outils</h3>
-                            <ul>
-                                <li><strong>MySQL 8</strong> - Base de données relationnelle</li>
-                                <li><strong>Docker</strong> - Conteneurisation</li>
+                                <li><strong>MySQL 8</strong> - BDD partagée avec Java</li>
                                 <li><strong>Git</strong> - Gestion de versions</li>
-                                <li><strong>PhpStorm</strong> - IDE principal</li>
+                                <li><strong>PhpStorm</strong> - IDE</li>
+                                <li><strong>Docker</strong> - Environnement de dev</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="content-section">
-                    <h2><i class="fas fa-lightbulb"></i> Défis Techniques Relevés</h2>
+                    <h2><i class="fas fa-lightbulb"></i> Défis Techniques</h2>
                     <div class="challenges">
                         <div class="challenge-item">
-                            <h3>Architecture Hybride</h3>
-                            <p>Conception d'une architecture permettant de partager les données entre l'application web et desktop via une API REST sécurisée.</p>
+                            <h3>Architecture partagée</h3>
+                            <p>Conception d'un schéma de base de données MySQL compatible à la fois avec Doctrine ORM (Symfony) et Hibernate (Java), accessible simultanément par les deux applications.</p>
                         </div>
                         <div class="challenge-item">
-                            <h3>Performance</h3>
-                            <p>Optimisation des requêtes SQL avec Doctrine pour gérer efficacement de grandes quantités de données (chantiers, devis, factures).</p>
+                            <h3>PWA pour inspecteurs terrain</h3>
+                            <p>Mise en place d'une Progressive Web App permettant la saisie et l'upload de documents depuis smartphone ou tablette, avec une expérience fluide en mobilité.</p>
                         </div>
                         <div class="challenge-item">
-                            <h3>Sécurité</h3>
-                            <p>Mise en place d'un système d'authentification robuste avec gestion des rôles et permissions (admin, chef de chantier, ouvrier).</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-section">
-                    <h2><i class="fas fa-rocket"></i> Résultats & Impact</h2>
-                    <div class="results-grid">
-                        <div class="result-item">
-                            <div class="result-number">40%</div>
-                            <p>Gain de temps dans la gestion des devis</p>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-number">100%</div>
-                            <p>Traçabilité des chantiers</p>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-number">30%</div>
-                            <p>Réduction des coûts grâce au comparateur</p>
+                            <h3>Sécurité multi-rôles</h3>
+                            <p>Gestion fine des accès avec Symfony Security : chaque acteur (inspecteur, entrepreneur, propriétaire, admin) dispose de permissions différenciées sur les mêmes ressources.</p>
                         </div>
                     </div>
                 </div>
@@ -171,7 +162,10 @@
                     <a href="index.html#projets" class="btn btn-primary">
                         <i class="fas fa-arrow-left"></i> Retour aux projets
                     </a>
-                    <a href="index.html#contact" class="btn btn-secondary">
+                    <a href="projet-gesttravaux-java.html" class="btn btn-secondary">
+                        <i class="fab fa-java"></i> Voir la partie Java
+                    </a>
+                    <a href="index.html#contact" class="btn btn-cv">
                         <i class="fas fa-envelope"></i> Me contacter
                     </a>
                 </div>

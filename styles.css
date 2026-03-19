@@ -580,11 +580,33 @@ section {
     background: var(--bg-secondary);
 }
 
+.projects-category {
+    margin-bottom: 3rem;
+}
+
+.category-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
+    max-width: 420px;
 }
+
+.projects-category:has(.projects-grid > .project-card:nth-child(2)) .projects-grid {
+    max-width: 100%;
+}
+
 
 .project-card {
     background: var(--card-bg);
