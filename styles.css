@@ -1279,6 +1279,57 @@ section {
     padding-left: 1rem;
 }
 
+/* SWOT */
+.swot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.swot-item {
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid;
+}
+
+.swot-item h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.swot-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.swot-item ul li {
+    padding: 0.4rem 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(128,128,128,0.1);
+}
+
+.swot-item ul li::before {
+    content: '▸ ';
+}
+
+.swot-forces    { background: rgba(16,185,129,0.08); border-color: #10b981; }
+.swot-forces h3 { color: #10b981; }
+
+.swot-faiblesses    { background: rgba(239,68,68,0.08); border-color: #ef4444; }
+.swot-faiblesses h3 { color: #ef4444; }
+
+.swot-opportunites    { background: rgba(99,102,241,0.08); border-color: var(--primary-color); }
+.swot-opportunites h3 { color: var(--primary-color); }
+
+.swot-menaces    { background: rgba(245,158,11,0.08); border-color: #f59e0b; }
+.swot-menaces h3 { color: #f59e0b; }
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -1560,6 +1611,10 @@ section {
     .symfony-project-item ul li {
         font-size: 0.9rem;
         padding-left: 0.5rem;
+    }
+
+    .swot-grid {
+        grid-template-columns: 1fr;
     }
 
     .nav-container {

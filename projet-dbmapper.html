@@ -51,15 +51,16 @@
                 <div class="content-section">
                     <h2><i class="fas fa-info-circle"></i> Présentation</h2>
                     <p>
-                        <strong>Doctrine DB Mapper Bundle</strong> est un bundle Symfony open-source que j'ai conçu et publié sur 
-                        <a href="https://packagist.org/packages/dimoussa/doctrine-db-mapper-bundle" target="_blank" style="color: var(--primary);">Packagist</a>.
+                        <strong>Doctrine DB Mapper Bundle</strong> (v1.4.1) est un bundle Symfony open-source que j'ai conçu et publié sur 
+                        <a href="https://packagist.org/packages/dimoussa/doctrine-db-mapper-bundle" target="_blank" style="color: var(--primary-color);">Packagist</a>.
                         Il permet de <strong>générer automatiquement des entités Doctrine</strong> à partir d'une base de données MySQL existante,
                         avec un support complet des relations (OneToMany, ManyToOne, ManyToMany, OneToOne).
                     </p>
                     <p>
-                        Ce projet est né d'un besoin concret : lors de la reprise d'un projet existant avec une base de données déjà en place,
-                        la création manuelle des entités Doctrine est fastidieuse et source d'erreurs. Ce bundle automatise entièrement ce processus
-                        via deux commandes Symfony interactives.
+                        Ce bundle est né directement de mon projet <strong>GestTravaux Pro</strong> : la base de données MySQL était déjà en place,
+                        et générer manuellement toutes les entités Doctrine aurait coûté un temps précieux à l'équipe. J'ai développé ce bundle
+                        pour automatiser entièrement ce processus — une fois le gain de temps prouvé sur notre projet, je l'ai publié sur Packagist
+                        pour le partager à toute la communauté Symfony.
                     </p>
                     <p>
                         Installable en une seule commande : <code>composer require dimoussa/doctrine-db-mapper-bundle</code>
@@ -109,12 +110,17 @@
                         <div class="symfony-project-item">
                             <h3><i class="fas fa-file-code"></i> dbmapper:generate-entities</h3>
                             <p>Génère automatiquement toutes les entités Doctrine depuis la base de données :</p>
+                            <pre style="background: var(--bg-secondary); padding: 0.8rem 1.2rem; border-radius: 8px; font-size: 0.88rem; margin-bottom: 1rem;">php bin/console dbmapper:generate-entities src/Entity</pre>
                             <ul>
                                 <li>Analyse complète du schéma (tables, colonnes, types, contraintes)</li>
                                 <li>Détection automatique des clés primaires et étrangères</li>
+                                <li>Détection intelligente de l'<code>AUTO_INCREMENT</code> pour les PK</li>
+                                <li>Détection des tables de jonction ManyToMany et ordre correct des PK composites</li>
                                 <li>Génération des relations bidirectionnelles entre entités</li>
                                 <li>Création des repositories avec méthodes de base</li>
-                                <li>Option <code>--table</code> pour cibler une table spécifique</li>
+                                <li>Synchronisation automatique de la base après génération</li>
+                                <li>Option <code>--table=users</code> pour cibler une table spécifique</li>
+                                <li>Option <code>--schema-preview</code> pour prévisualiser le SQL avant génération</li>
                             </ul>
                         </div>
 
@@ -142,11 +148,18 @@
                             <pre style="background: var(--bg-secondary); padding: 1.2rem; border-radius: 10px; overflow-x: auto; font-size: 0.9rem; line-height: 1.6;">
 📊 Analyse du schéma de la base de données...
 🔗 Analyse des relations entre tables...
+  → Tables d'association ManyToMany détectées: user_roles, post_tags
 ⚙️  Génération des entités et repositories...
-✅ User.php généré
-✅ Post.php généré
+⏭️  Table système ignorée: messenger_messages (configurée dans ignored_tables)
+⏭️  Table d'association ignorée: user_roles (gérée comme ManyToMany)
+✅ User.php généré [2 OneToMany] [1 ManyToMany]
+✅ Post.php généré [1 OneToMany] [1 ManyToMany]
 ✅ Comment.php généré
-🎉 3 entités créées avec succès !</pre>
+🧹 Nettoyage du cache Symfony...
+✅ Cache Symfony nettoyé avec succès.
+🔄 Synchronisation de la base de données avec le mapping généré...
+✅ Base de données synchronisée avec le mapping Doctrine.
+✨ Génération terminée avec succès !</pre>
                         </div>
 
                         <div class="symfony-project-item">
@@ -309,16 +322,20 @@ doctrine-db-mapper-bundle/
                     <h2><i class="fas fa-rocket"></i> Résultats</h2>
                     <div class="results-grid">
                         <div class="result-item">
-                            <div class="result-number">7</div>
-                            <p>Services architecturés</p>
+                            <div class="result-number" id="packagist-downloads">...</div>
+                            <p>Téléchargements sur Packagist</p>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number" id="packagist-version">...</div>
+                            <p>Version stable actuelle</p>
                         </div>
                         <div class="result-item">
                             <div class="result-number">2</div>
-                            <p>Commandes Symfony</p>
+                            <p>Commandes CLI interactives</p>
                         </div>
                         <div class="result-item">
                             <div class="result-number">4</div>
-                            <p>Types de relations</p>
+                            <p>Types de relations supportés</p>
                         </div>
                     </div>
                 </div>
@@ -353,5 +370,30 @@ doctrine-db-mapper-bundle/
     </button>
 
     <script src="script.js"></script>
+    <script>
+        fetch('https://packagist.org/packages/dimoussa/doctrine-db-mapper-bundle.json')
+            .then(r => r.json())
+            .then(data => {
+                const pkg = data.package;
+                const total = pkg.downloads.total;
+                document.getElementById('packagist-downloads').textContent =
+                    total >= 1000 ? (total / 1000).toFixed(1) + 'k' : total;
+                const versions = Object.keys(pkg.versions)
+                    .filter(v => /^v?\d+\.\d+\.\d+$/.test(v))
+                    .sort((a, b) => {
+                        const pa = a.replace(/^v/, '').split('.').map(Number);
+                        const pb = b.replace(/^v/, '').split('.').map(Number);
+                        for (let i = 0; i < 3; i++) if (pa[i] !== pb[i]) return pb[i] - pa[i];
+                        return 0;
+                    });
+                if (versions.length > 0) {
+                    document.getElementById('packagist-version').textContent = versions[0].replace(/^v/, '');
+                }
+            })
+            .catch(() => {
+                document.getElementById('packagist-downloads').textContent = '~50';
+                document.getElementById('packagist-version').textContent = '1.4.1';
+            });
+    </script>
 </body>
 </html>
